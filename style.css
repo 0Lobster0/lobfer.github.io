@@ -1,0 +1,584 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Cinzel', serif;
+  background: linear-gradient(135deg, #1e1e2f, #2a2a4a);
+  color: white;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ===== 动态图片背景（替换极光） ===== */
+#background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  
+  /* 你的动态图片背景 */
+  background-image: url('1.jpg'); /* 改成你的动图路径 */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* 缓慢缩放动画，更有呼吸感 */
+  animation: bgZoom 20s ease-in-out infinite alternate;
+}
+
+/* 动态图片缓慢缩放 */
+@keyframes bgZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+/* 主内容容器（大亚克力） */
+#pageContent {
+  width: 95%;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 头像占位 */
+.avatar-placeholder {
+  width: 120px;
+  height: 120px;
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* 标题 */
+h1, h2, h3 {
+  text-align: center;
+  margin: 15px 0;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+/* 简介文字 */
+p {
+  text-align: center;
+  margin: 10px 0 20px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* ===== 按钮组（屏幕自适应·最终版）===== */
+.button-group {
+  display: flex;
+  justify-content: center;   /* 电脑上居中 */
+  align-items: center;
+  flex-wrap: wrap;           /* ✅ 手机上允许换行 */
+  gap: 10px;                /* ✅ 按钮间距 */
+  padding: 10px 12px;
+  margin: 15px auto;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.button-group button {
+  flex: 0 0 auto;            /* ✅ 不让按钮被强行拉长 */
+  padding: 6px 14px;
+  font-size: 13px;
+  font-family: 'Cinzel', serif;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: all 0.2s ease;
+  white-space: nowrap;       /* ✅ 防止按钮文字换行 */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* ===== 手机端微调（关键）===== */
+@media (max-width: 480px) {
+  .button-group {
+    gap: 8px;                /* ✅ 手机上间距收紧 */
+    padding: 8px 10px;
+  }
+
+  .button-group button {
+    padding: 5px 10px;       /* ✅ 手机上按钮再小一圈 */
+    font-size: 12px;
+  }
+}
+
+
+/* 关系表卡片 */
+.relation-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 12px;
+  border-left: 4px solid;
+  border-radius: 8px 12px 12px 8px;
+}
+
+.relation-card h3 {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.relation-card p {
+  font-size: 14px;
+  opacity: 0.8;
+  text-align: left;
+}
+
+/* 任务页 */
+.task-item {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  font-size: 16px;
+  text-align: left;
+}
+
+.check {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+/* 勋章页 */
+.medal-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px 15px;
+  margin: 8px 0;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* 图册页 */
+.gallery-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.g {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.g:hover {
+  transform: scale(1.05);
+}
+
+/* 图片放大遮罩 */
+.image-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+.image-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+}
+
+/* 响应式适配屏幕 */
+@media (max-width: 768px) {
+  #pageContent {
+    width: 98%;
+    padding: 15px;
+    margin: 10px auto;
+  }
+
+  .button-group button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .avatar-placeholder {
+    width: 100px;
+    height: 100px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+}
+
+/* ===== 页脚 ===== */
+.site-footer {
+  text-align: center;
+  padding: 14px 10px;
+  font-size: 12px;
+  color: rgba(255,255,255,.45);
+  letter-spacing: 0.5px;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ===================================================
+   追加修正（按钮 + 资料页 + 手机适配）
+   不影响原有源码，仅覆盖表现层
+   =================================================== */
+
+/* ===== 按钮组：实打实 + 自适应屏幕 ===== */
+.button-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 12px;
+  margin: 15px auto;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.button-group button {
+  padding: 6px 14px;
+  font-size: 13px;
+  font-family: 'Cinzel', serif;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 20px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.35);
+}
+
+.button-group button:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-1px);
+}
+
+.button-group button:active {
+  transform: scale(0.96);
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* ===== 手机端：再收紧一点 ===== */
+@media (max-width: 420px) {
+  .button-group {
+    gap: 6px;
+    padding: 8px 10px;
+  }
+
+  .button-group button {
+    padding: 5px 11px;
+    font-size: 12px;
+  }
+}
+
+/* ===== 资料页卡片：独立青色风格 ===== */
+#profile-content .relation-card {
+  border-left-color: #7ed6df;
+  background: rgba(126, 214, 223, 0.06);
+}
+
+/* ===== 顺手修复：CSS 注释写法（防止后面样式失效）===== */
+/* 原文件中这一行写法是错的，这里强制覆盖语义，不影响功能 */
+/* 正确写法应为：/* 注释 *／（已在上方统一规范）*/
+
+
+//* ===== 欢迎页（暴力全屏版） ===== */
+.welcome-page {
+  position: fixed;      /* 关键：固定定位，脱离文档流 */
+  top: 0;
+  left: 0;
+  width: 100vw;         /* 视口宽度 */
+  height: 100vh;        /* 视口高度 */
+  z-index: 9999;        /* 关键：在最顶层，谁也盖不住 */
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  padding-top:120px
+
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  animation: fadeIn 1s ease;
+}
+
+.welcome-page h1 {
+  font-size: clamp(24px, 6vw, 36px); /* 自适应大小 */
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.welcome-page p {
+  font-size: clamp(14px, 4vw, 18px);
+  margin-bottom: 30px;
+  color: rgba(255,255,255,.8);
+}
+
+.enter-button {
+  padding: 12px 32px;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  background: rgba(255,255,255,.15);
+  color: #fff;
+  font-family: 'Cinzel', serif;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  
+  /* 下面这两行是关键，强制按钮自身在容器内完美居中 */
+  display: block;
+  margin: 0 auto;
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===== 关系表卡片统一居中 ===== */
+.relation-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;     /* ✅ 水平居中 */
+  text-align: center;      /* ✅ 文字居中 */
+  padding: 20px 15px;
+  margin: 12px 10px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 16px;
+  border-left: 4px solid transparent;
+}
+
+.relation-card h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.relation-card p {
+  margin: 0;
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.5;
+  max-width: 80%;
+  text-align: center;      /* ✅ 再次强调居中，防万一 */
+}
+
+
+.medal-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.medal-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  font-size: 15px;
+  color: rgba(255,255,255,0.85);
+  border-left: 3px solid rgba(255,255,255,0.2);
+}
+
+.medal-list span {
+  font-size: 20px;
+}
+
+/* ===== 页脚：归位 ===== */
+.site-footer {
+  width: 95%;
+  max-width: 800px;
+  margin: 0 auto 20px; /* ✅ 和 #pageContent 对齐 */
+}
+
+/* ===================================================
+   资料页专属风格（不与关系表混淆）
+   仅针对 #profile-content 内的卡片
+   =================================================== */
+
+/* ===================================================
+   资料页：纯文本模式（拆掉所有卡片框）
+   =================================================== */
+
+/* ===================================================
+   资料页：纯 p 文本（无框、无卡片）
+   =================================================== */
+
+#profile-content h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-weight: 600;
+  font-size: 24px;
+  color: #fff;
+}
+
+#profile-content p {
+  margin: 14px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+}
+
+/* ===================================================
+   勋章页：成就说明（纯文本）
+   =================================================== */
+
+.achievement-note {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08); /* 一根细细的分隔线 */
+}
+
+.achievement-note p {
+  margin: 10px 0;
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.65);
+  text-align: center;
+  font-style: italic;
+  letter-spacing: 0.3px;
+}
+
+
+/* ===================================================
+   关系表 · 黑名单（强制人名变色）
+   =================================================== */
+.relation-card.blacklist {
+  opacity: 0.6;
+  filter: grayscale(0.8);
+}
+
+/* ✅ 强制 h3（人名）变色 */
+.relation-card.blacklist h3 {
+  color: rgba(255, 255, 255, 0.35) !important;
+  font-style: italic;
+  text-decoration: line-through;
+  text-decoration-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ✅ 强制 p（备注）变色 */
+.relation-card.blacklist p {
+  color: rgba(255, 255, 255, 0.3) !important;
+  font-style: italic;
+}
+/* ===================================================
+   关系表 · 黑名单（精准画线 + 变灰）
+   =================================================== */
+
+/* 只在黑名单卡片底部画线 */
+.relation-card[style*="border-left-color: #666"]::after {
+  content: "";
+  position: absolute;
+  bottom: 12px;
+  left: 10%;
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.18),
+    transparent
+  );
+  pointer-events: none;
+}
+
+/* 黑名单文字变灰 */
+.relation-card[style*="border-left-color: #666"] h3,
+.relation-card[style*="border-left-color: #666"] p {
+  color: rgba(255, 255, 255, 0.35) !important;
+}
+
+/* 黑名单整体压暗 */
+.relation-card[style*="border-left-color: #666"] {
+  opacity: 0.6;
+  filter: grayscale(0.7);
+}
+
+/* ===================================================
+   关系表 · 黑名单（靠边框颜色精准命中）
+   =================================================== */
+
+/* 选中边框是灰色的那张卡 */
+.relation-card[style*="border-left-color: #666"] h3,
+.relation-card[style*="border-left-color: #666"] p {
+  color: rgba(255, 255, 255, 0.35) !important;
+}
+
+/* 整体再压暗一点点，更“封存” */
+.relation-card[style*="border-left-color: #666"] {
+  opacity: 0.6;
+  filter: grayscale(0.7);
+}
+
+p {
+  white-space: pre-line;
+}
+/* ===================================================
+   头像图片（替代占位框）
+   =================================================== */
+.avatar-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 20px auto;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>龙龙的主页</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 背景音乐 -->
+<audio id="bgm" loop>
+  <source src="1.mp3" type="audio/mpeg">
+</audio>
+
+  <!-- 背景 -->
+  <div id="background"></div>
+  
+  <!-- 主内容容器（大亚克力） -->
+  <div id="pageContent">
+
+
+    <!-- 欢迎页 -->
+    <div id="welcomePage" class="welcome-page">
+      <h1>欢迎你来到我的网页</h1>
+      <p>你想了解我吗?</p>
+      <button class="enter-button" id="enterBtn">是的</button>
+    </div>
+
+    <!-- 主页 -->
+    <div class="home-page" id="homePage" style="display:none;">
+      <img class="avatar-img" src="a.jpg" alt="头像">
+      <h1>龙龙的主页</h1>
+      <p id="musicBtn" style="margin:-8px 0 12px; font-size:12px; opacity:.45; text-align:center; cursor:pointer;">
+      🔈 正在播放背景音乐
+</p>
+<!-- 欢迎语 -->
+<p style="text-align:center; font-size:18px; color:#ffd700; font-style:italic; letter-spacing:2px; margin:20px 0;">
+  🌟 因光而遇，因遇而散🌟
+     欢迎来到我的网页！！
+</p>
+      <!-- 按钮组 -->
+      <div class="button-group">
+        <button data-page="tasks">任务</button>
+        <button data-page="medals">勋章</button>
+        <button data-page="gallery">图册</button>
+        <button data-page="relations">关系表</button>
+        <button data-page="profile">资料</button>
+      </div>
+
+      <!-- 关系表 -->
+      <div id="relations-content" class="content-section" style="display:none;">
+        <h2>关系表</h2>
+        <div class="relation-card" style="border-left-color: #ff69b4;">
+            <h3>🐉搭档</h3>
+            这个位置是空的
+        </div>
+        <div class="relation-card" style="border-left-color: #4169e1;">
+            <h3>👨‍👩‍👧 家人</h3>
+            家人亲戚太多...没法展示
+        </div>
+        <div class="relation-card" style="border-left-color: #ffd700;">
+            <h3>🤝 死党</h3>
+            这个位置是空的
+        </div>
+        <div class="relation-card" style="border-left-color: #ff1493;">
+            <h3>💞 恋人</h3>
+           这个位置是空的且只有一个
+        </div>
+        <div class="relation-card" style="border-left-color: #666;">
+            <h3>🚫黑名单</h3>
+             人太多了无法显示
+        </div>
+      </div>
+<!-- 任务页 -->
+<div id="tasks-content" class="content-section" style="display:none;">
+  <h2>📋 任务与安排</h2>
+  
+  <p style="text-align:center; color:#aaccff; font-style:italic; margin-bottom:15px;">
+    每天进步一点点，加油！
+    我就在这里！！！
+  </p>
+  
+  <div class="task-item"><span class="check">✅</span> 完善个人主页2026至今 </div>
+  <div class="task-item"><span class="check">⬜</span> 完成高中学业2025-9-4——2027-6-11结束 </div>
+  <div class="task-item"><span class="check">⬜</span> 完成特殊任务，21岁完成任务</div>
+  <div class="task-item"><span class="check">✅</span> 搭建主页框架</div>
+  <p style="margin-top:20px;opacity:.6;font-size:14px; text-align:center;">
+      ✅ 已完成　⬜ 未完成
+  </p>
+</div>
+
+<div id="medals-content" class="content-section" style="display:block;">
+  <h2>🏅 奖项与成就</h2>
+
+  <!-- 勋章 -->
+  <ul class="medal-list">
+    <h1>奖项</h1>
+    <li><span>✨</span>美国时代周刊2006年风云人物</li>
+    <li><span>🏆</span>2022年国际国际奥林匹克获得者</li>
+    <li><span>🌏</span>联合国2019“年度地球卫士”奖联合获奖人</li>
+  </ul>
+
+  <!-- ✅ 一根很淡的分割线 -->
+  <hr class="medal-divider">
+
+  <!-- 成就（和勋章一模一样） -->
+  <ul class="medal-list">
+    <h1>成就</h1>
+    <li><span>🏃</span>50m能跑6.8s</li>
+    <li><span>🎉</span>可以黑入大部分网页代码</li>
+    <li><span>🛠️</span>修复系统及黑入其他系统，可以越狱并刷机苹果</li>
+  </ul>
+</div>
+
+
+      <!-- 图册页 -->
+        <div id="gallery-content" class="content-section" style="display:none;">
+        <p style="text-align:center; color:#000000; margin-top:40px; font-size:16px;">
+         龙虾暂时删除了
+         暂时不让观看
+  </p>
+  
+      </div><!-- #gallery-content 结束 -->
+
+      <!-- ✅ 资料页（已移至正确位置） -->
+<div id="profile-content" class="content-section" style="display:none; color:black;">
+  <h2>龙龙的资料</h2>
+
+  <p style="margin:14px 0;line-height:1.9;opacity:.9;">
+    🧑 昵称：***<br>
+    🦊 代号：冷面
+  </p>
+
+  <p style="margin:14px 0;line-height:1.9;opacity:.9;">
+    🎂 生日：未知
+  </p>
+
+  <p style="margin:14px 0;line-height:1.9;opacity:.9;">
+    🏷️ 标签：冷面黑客 / 不怕事情 / 禁止打架
+  </p>
+
+  <p style="margin:14px 0;line-height:1.9;opacity:.9;">
+    🕶️ 风格：原先热情·开朗 → 现在冷酷·无情
+  </p>
+
+  <p style="margin:14px 0;line-height:1.9;opacity:.9;">
+    🔐 状态：无所谓 / 对生活充满挑战
+  </p>
+
+  <p style="margin:14px 0;line-height:1.9;opacity:.9;">
+    ☎️ 联系方式：未公开
+  </p>
+<h3>个人资料</h3>
+<p>无</p>
+  <p style="margin:20px 0 8px;font-size:13px;opacity:.6;">
+    🧠 心理状态评估=>未通过
+  </p>
+  <p style="margin:0;line-height:1.9;opacity:.85;font-family:monospace;">
+    稳定度：A-<br>
+    攻击性：低（仅防御）<br>
+    社交能耗：高<br>
+    当前状态：冷面 / 观察
+  </p>
+<p></p>
+  <!-- 占个位，不显示任何东西 -->
+  <p></p>
+</div>
+
+</div>
+
+    </div><!-- .home-page 结束 -->
+
+  </div>
+
+  <!-- 页脚 -->
+  <footer class="site-footer">
+    更新日期：2026年11月7日
+    已更改所有漏洞
+  </footer>
+
+  <!-- 跳转逻辑 -->
+  <script>
+    // 欢迎页 -> 主页
+    document.addEventListener('DOMContentLoaded', function () {
+      var btn = document.getElementById('enterBtn');
+      var welcome = document.getElementById('welcomePage');
+      var home = document.getElementById('homePage');
+
+      if (btn && welcome && home) {
+        btn.onclick = function () {
+          welcome.style.display = 'none';
+          home.style.display = 'block';
+        };
+      }
+    });
+
+    // 页面切换逻辑
+    function switchPage(pageName) {
+      document.querySelectorAll('.content-section').forEach(sec => {
+        sec.style.display = 'none';
+      });
+      var target = document.getElementById(pageName + '-content');
+      if (target) {
+        target.style.display = 'block';
+      }
+    }
+
+    document.querySelectorAll('.button-group button').forEach(btn => {
+      btn.addEventListener('click', function () {
+        switchPage(this.dataset.page);
+      });
+    });
+
+    // 默认显示勋章
+    window.onload = function () {
+      var medals = document.getElementById('medals-content');
+      if (medals) {
+        medals.style.display = 'block';
+      }
+    };
+  </script>
+  <!-- 背景音乐控制 -->
+<!-- 背景音乐控制 -->
+<script>
+  const bgm = document.getElementById("bgm");
+  const btn = document.getElementById("musicBtn");
+
+  // 点文字按钮：永远可用
+  btn.addEventListener("click", () => {
+    if (bgm.paused) {
+      bgm.volume = 0.5;
+      bgm.play();
+      btn.innerHTML = "🔊 打开播放音乐,把回忆拼好给你";
+    } else {
+      bgm.pause();
+      btn.innerHTML = "🔈 关闭背景音乐,把回忆拼好给你";
+    }
+  });
+
+  // 第一次进页面：尝试自动播放（只用来“破冰”）
+  document.addEventListener("click", () => {
+    if (bgm.paused) {
+      bgm.volume = 0.5;
+      bgm.play().then(() => {
+        btn.innerHTML = "🔊 播放背景音乐,把回忆拼好给你";
+      }).catch(() => {});
+    }
+  }, { once: true });
+</script>
+</body>
+</html>
