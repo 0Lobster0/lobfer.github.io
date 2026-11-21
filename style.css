@@ -52,18 +52,20 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* 头像占位 */
-.avatar-placeholder {
+/* 头像新样式 */
+.avatar-section {
+  text-align: center;
+  padding: 20px 0;
+}
+.avatar-section img {
+  display: block;
   width: 120px;
   height: 120px;
-  border: 2px dashed rgba(255, 255, 255, 0.3);
   border-radius: 50%;
-  margin: 20px auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.6);
+  object-fit: cover;
+  border: 3px solid rgba(245, 158, 66, 0.6);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  margin: 0 auto;
 }
 
 /* 标题 */
@@ -237,18 +239,19 @@ p {
     font-size: 14px;
   }
 
-  .avatar-placeholder {
-    width: 100px;
-    height: 100px;
-  }
-
-  h1 {
-    font-size: 24px;
-  }
-
-  h2 {
-    font-size: 20px;
-  }
+.avatar-section {
+  text-align: center;
+  padding: 20px 0;
+}
+.avatar-section img {
+  display: block;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(245, 158, 66, 0.6);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  margin: 0 auto;
 }
 
 /* ===== 页脚 ===== */
@@ -572,38 +575,21 @@ p {
 /* ===================================================
    头像图片（替代占位框）
    =================================================== */
+
 .avatar-img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
+.avatar-section {
+  text-align: center;
+  padding: 20px 0;
+}
+.avatar-section img {
   display: block;
-  margin: 20px auto;
-  border: 2px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
-/* ===== 修复头像被占位框覆盖 ===== */
-.avatar-placeholder img.avatar-img,
-img.avatar-img {
-  display: block !important;
   width: 120px;
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  margin: 20px auto;
+  border: 3px solid rgba(245, 158, 66, 0.6);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  margin: 0 auto;
 }
 
-/* 隐藏占位框的文字 */
-.avatar-placeholder {
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.avatar-placeholder span,
-.avatar-placeholder::before {
-  display: none !important;
-}
+ 
