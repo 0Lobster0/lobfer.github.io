@@ -582,3 +582,28 @@ p {
   border: 2px solid rgba(255, 255, 255, 0.25);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
+/* ===== 修复头像被占位框覆盖 ===== */
+.avatar-placeholder img.avatar-img,
+img.avatar-img {
+  display: block !important;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  margin: 20px auto;
+}
+
+/* 隐藏占位框的文字 */
+.avatar-placeholder {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-placeholder span,
+.avatar-placeholder::before {
+  display: none !important;
+}
